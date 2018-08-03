@@ -1,0 +1,56 @@
+{
+	"device_conf": {
+    "device": "FieldSensor",
+    "model": "V2"
+	},
+	"sensor_conf": {
+		"field_1": {
+      "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
+      "link": "http://www.cardvdgpsplayers.com/manage_zheqin/ewebeditor5_5/attachment/20170718114523993.pdf",
+			"field": "soil_temperature_c",
+			"type": "float",
+			"unit": "°C",
+      "conversion": ""
+		},
+		"field_2": {
+      "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
+      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+			"field": "VWC",
+			"type": "float",
+			"unit": "%",
+      "conversion": ""
+		},
+		"field_3": {
+      "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
+      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+			"field": "EC",
+			"type": "int",
+			"unit": "us/cm",
+      "conversion": ""
+		},
+		"field_4": {
+      "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
+      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+			"field": "salinity",
+			"type": "int",
+			"unit": "mg/L",
+      "conversion": ""
+		},
+		"field_5": {
+      "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
+      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+			"field": "TDS",
+			"type": "int",
+			"unit": "mg/L",
+      "conversion": ""
+		},
+		"field_6": {
+      "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
+      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+			"field": "epsilon",
+			"type": "float",
+			"unit": "",
+      "conversion": ""
+		}
+	}
+}
