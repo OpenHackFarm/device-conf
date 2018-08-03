@@ -1,8 +1,8 @@
 {
   "node_conf": {
-    "device": "OHF/FieldSensorV1",
-    "ref_latitude": 24.7229289,
-    "ref_longitude": 121.72193520,
+    "device": "OHF/FieldSensorV2",
+    "ref_latitude": null,
+    "ref_longitude": null,
     "ref_altitude": null,
     "contact_email": "a0726h77@gmail.com",
     "description": "Open Hack Farm demo device",
