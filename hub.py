@@ -1,6 +1,10 @@
 import importlib
 import json
 import geohash
+import os
+
+root = os.path.dirname(__file__).split('/')[-1]
+print(root)
 
 
 DEV_ID = ''
@@ -9,7 +13,7 @@ RAW_DATA = ''
 def process(DEV_ID, RAW_DATA):
     # --------
 
-    NODE_FILE = 'nodes/' + DEV_ID + '.json'
+    NODE_FILE = root + '/nodes/' + DEV_ID + '.json'
     # print(NODE_FILE)
 
     f = open(NODE_FILE)
@@ -18,7 +22,7 @@ def process(DEV_ID, RAW_DATA):
 
     # --------
 
-    PARSER = 'parser.' + NODE['node_conf']['parser']
+    PARSER = root + '.parser.' + NODE['node_conf']['parser']
     # print(PARSER)
     parser = importlib.import_module(PARSER)
     # print(dir(parser))
@@ -29,7 +33,7 @@ def process(DEV_ID, RAW_DATA):
 
     # --------
 
-    DEV_FILE = 'devices/' + NODE['node_conf']['device'] + '.json'
+    DEV_FILE = root + '/devices/' + NODE['node_conf']['device'] + '.json'
     # print(DEV_FILE)
 
     f = open(DEV_FILE)
@@ -62,7 +66,7 @@ def process(DEV_ID, RAW_DATA):
 
     # --------
 
-    FORAWRD = 'forwarder.' + NODE['node_conf']['forwarder']
+    FORAWRD = root + '.forwarder.' + NODE['node_conf']['forwarder']
     forwarder = importlib.import_module(FORAWRD)
 
     ret = forwarder.forward(node_data)
