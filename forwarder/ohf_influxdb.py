@@ -1,8 +1,5 @@
 from influxdb import InfluxDBClient
-
-INFLUXDB_HOST = ''
-INFLUXDB_DATABASE = ''
-INFLUXDB_MEASUREMENT = ''
+from .ohf_influxdb_config import *
 
 inClient = InfluxDBClient(host=INFLUXDB_HOST, database=INFLUXDB_DATABASE)
 
