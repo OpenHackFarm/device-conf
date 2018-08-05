@@ -6,7 +6,7 @@
     "ref_altitude": null,
     "contact_email": "a0726h77@gmail.com",
     "description": "Open Hack Farm demo device",
-    "parser": "",
-    "output": ""
+    "parser": "MEC10",
+    "forwarder": "ohf_influxdb"
   }
 }
