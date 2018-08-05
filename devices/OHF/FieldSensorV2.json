@@ -14,7 +14,7 @@
 		},
 		"field_2": {
       "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
-      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+      "link": "http://www.cardvdgpsplayers.com/manage_zheqin/ewebeditor5_5/attachment/20170718114523993.pdf",
 			"field": "VWC",
 			"type": "float",
 			"unit": "%",
@@ -22,7 +22,7 @@
 		},
 		"field_3": {
       "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
-      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+      "link": "http://www.cardvdgpsplayers.com/manage_zheqin/ewebeditor5_5/attachment/20170718114523993.pdf",
 			"field": "EC",
 			"type": "int",
 			"unit": "us/cm",
@@ -30,7 +30,7 @@
 		},
 		"field_4": {
       "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
-      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+      "link": "http://www.cardvdgpsplayers.com/manage_zheqin/ewebeditor5_5/attachment/20170718114523993.pdf",
 			"field": "salinity",
 			"type": "int",
 			"unit": "mg/L",
@@ -38,7 +38,7 @@
 		},
 		"field_5": {
       "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
-      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+      "link": "http://www.cardvdgpsplayers.com/manage_zheqin/ewebeditor5_5/attachment/20170718114523993.pdf",
 			"field": "TDS",
 			"type": "int",
 			"unit": "mg/L",
@@ -46,7 +46,7 @@
 		},
 		"field_6": {
       "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
-      "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
+      "link": "http://www.cardvdgpsplayers.com/manage_zheqin/ewebeditor5_5/attachment/20170718114523993.pdf",
 			"field": "epsilon",
 			"type": "float",
 			"unit": "",
