@@ -10,10 +10,13 @@ print(root)
 DEV_ID = ''
 RAW_DATA = ''
 
-def process(DEV_ID, RAW_DATA):
+def process(DEV_ID, RAW_DATA, root=None):
     # --------
 
-    NODE_FILE = root + '/nodes/' + DEV_ID + '.json'
+    if root:
+        NODE_FILE = root + '/nodes/' + DEV_ID + '.json'
+    else:
+        NODE_FILE = 'nodes/' + DEV_ID + '.json'
     # print(NODE_FILE)
 
     f = open(NODE_FILE)
@@ -22,7 +25,10 @@ def process(DEV_ID, RAW_DATA):
 
     # --------
 
-    PARSER = root + '.parser.' + NODE['node_conf']['parser']
+    if root:
+        PARSER = root + '.parser.' + NODE['node_conf']['parser']
+    else:
+        PARSER = 'parser.' + NODE['node_conf']['parser']
     # print(PARSER)
     parser = importlib.import_module(PARSER)
     # print(dir(parser))
@@ -33,7 +39,10 @@ def process(DEV_ID, RAW_DATA):
 
     # --------
 
-    DEV_FILE = root + '/devices/' + NODE['node_conf']['device'] + '.json'
+    if root:
+        DEV_FILE = root + '/devices/' + NODE['node_conf']['device'] + '.json'
+    else:
+        DEV_FILE = 'devices/' + NODE['node_conf']['device'] + '.json'
     # print(DEV_FILE)
 
     f = open(DEV_FILE)
@@ -66,7 +75,10 @@ def process(DEV_ID, RAW_DATA):
 
     # --------
 
-    FORAWRD = root + '.forwarder.' + NODE['node_conf']['forwarder']
+    if root:
+        FORAWRD = root + '.forwarder.' + NODE['node_conf']['forwarder']
+    else:
+        FORAWRD = 'forwarder.' + NODE['node_conf']['forwarder']
     forwarder = importlib.import_module(FORAWRD)
 
     ret = forwarder.forward(node_data)
