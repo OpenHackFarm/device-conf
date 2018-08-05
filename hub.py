@@ -1,11 +1,6 @@
 import importlib
 import json
 import geohash
-import os
-
-root = os.path.dirname(__file__).split('/')[-1]
-print(root)
-
 
 DEV_ID = ''
 RAW_DATA = ''
