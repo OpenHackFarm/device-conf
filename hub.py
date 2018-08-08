@@ -1,81 +1,88 @@
 import importlib
 import json
 import geohash
+import os
+import sys
 
 DEV_ID = ''
 RAW_DATA = ''
 
-def process(DEV_ID, RAW_DATA, root=None):
-    # --------
+root = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, root)
 
-    if root:
-        NODE_FILE = root + '/nodes/' + DEV_ID + '.json'
-    else:
-        NODE_FILE = 'nodes/' + DEV_ID + '.json'
-    # print(NODE_FILE)
 
-    f = open(NODE_FILE)
-    NODE = json.load(f)
-    # print(NODE)
+def get_node_info(dev_id):
+    node_file = os.path.join(root, 'nodes', dev_id + '.json')
+    print(node_file)
 
-    # --------
+    f = open(node_file)
+    node = json.load(f)
 
-    if root:
-        PARSER = root + '.parser.' + NODE['node_conf']['parser']
-    else:
-        PARSER = 'parser.' + NODE['node_conf']['parser']
-    # print(PARSER)
-    parser = importlib.import_module(PARSER)
-    # print(dir(parser))
+    return node
 
-    PARSE_DATA = parser.parse(RAW_DATA)
-    print(PARSE_DATA)
-    print()
 
-    # --------
+def load_data_parser(parser_module_name):
+    parser_path = 'plugin.parser.' + parser_module_name
 
-    if root:
-        DEV_FILE = root + '/devices/' + NODE['node_conf']['device'] + '.json'
-    else:
-        DEV_FILE = 'devices/' + NODE['node_conf']['device'] + '.json'
-    # print(DEV_FILE)
+    parser = importlib.import_module(parser_path)
 
-    f = open(DEV_FILE)
-    DEV_DATA = json.load(f)
-    # print(DEV_DATA)
+    return parser
 
-    # --------
 
-    # for s in DEV_DATA['sensor_conf']:
-        # print(s)
+def load_device_define(dev):
+    dev_file = os.path.join(root, 'devices', dev + '.json')
+    print(dev_file)
+
+    f = open(dev_file)
+    dev = json.load(f)
+
+    return dev
+
+def mapping_node_data(dev, node, dev_id, data):
+    node_structure = {"device": {"id": dev_id, "latitude": None, "longitude": None, "geohash": None}, "sensors": {}}
+
+    if node['node_conf']['ref_latitude'] and node['node_conf']['ref_longitude']:
+        node_structure['device']['latitude'] = node['node_conf']['ref_latitude']
+        node_structure['device']['longitude'] = node['node_conf']['ref_longitude']
+        node_structure['device']['geohash'] = geohash.encode(node['node_conf']['ref_latitude'], node['node_conf']['ref_longitude'])
 
     # print(len(PARSE_DATA), len(DEV_DATA['sensor_conf']))
-
-    node_data = {"device": {"id": DEV_ID, "latitude": None, "longitude": None, "geohash": None}, "sensors": {}}
-
-    if NODE['node_conf']['ref_latitude'] and NODE['node_conf']['ref_longitude']:
-        node_data['device']['latitude'] = NODE['node_conf']['ref_latitude']
-        node_data['device']['longitude'] = NODE['node_conf']['ref_longitude']
-        node_data['device']['geohash'] = geohash.encode(NODE['node_conf']['ref_latitude'], NODE['node_conf']['ref_longitude'])
-
-    if len(PARSE_DATA) == len(DEV_DATA['sensor_conf']):
-        for k, i in enumerate(PARSE_DATA):
+    if len(data) == len(dev['sensor_conf']):
+        for k, i in enumerate(data):
             k = k + 1
-            node_data['sensors']['field_%d' % k] = {}
-            node_data['sensors']['field_%d' % k]['key'] = DEV_DATA['sensor_conf']['field_%d' % k]['field']
-            node_data['sensors']['field_%d' % k]['value'] = eval(DEV_DATA['sensor_conf']['field_%d' % k]['type'])(i)
+            node_structure['sensors']['field_%d' % k] = {}
+            node_structure['sensors']['field_%d' % k]['key'] = dev['sensor_conf']['field_%d' % k]['field']
+            node_structure['sensors']['field_%d' % k]['value'] = eval(dev['sensor_conf']['field_%d' % k]['type'])(i)
 
-    print(node_data)
+    return node_structure
+
+
+def load_data_forwarder(forwarder_module_name):
+    forwarder_path = 'plugin.forwarder.' + forwarder_module_name
+
+    forwarder = importlib.import_module(forwarder_path)
+
+    return forwarder
+
+
+def process(dev_id, raw_data, root=None):
+    node = get_node_info(dev_id)
+
+    dev = load_device_define(node['node_conf']['device'])
+    print(dev)
     print()
 
-    # --------
+    parser = load_data_parser(node['node_conf']['parser'])
 
-    if root:
-        FORAWRD = root + '.forwarder.' + NODE['node_conf']['forwarder']
-    else:
-        FORAWRD = 'forwarder.' + NODE['node_conf']['forwarder']
-    forwarder = importlib.import_module(FORAWRD)
+    parse_data = parser.parse(raw_data)
+    print(parse_data)
+    print()
 
+    node_data = mapping_node_data(dev, node, dev_id, parse_data)
+    print(json.dumps(node_data, indent=4, sort_keys=True))
+    print()
+
+    forwarder = load_data_forwarder(node['node_conf']['forwarder'])
     ret = forwarder.forward(node_data)
 
 if __name__ == "__main__":
