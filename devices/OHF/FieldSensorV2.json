@@ -23,7 +23,7 @@
 		"field_3": {
       "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
       "link": "http://www.cardvdgpsplayers.com/manage_zheqin/ewebeditor5_5/attachment/20170718114523993.pdf",
-			"field": "EC",
+			"field": "EC_us_cm",
 			"type": "int",
 			"unit": "us/cm",
       "conversion": ""
@@ -31,7 +31,7 @@
 		"field_4": {
       "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
       "link": "http://www.cardvdgpsplayers.com/manage_zheqin/ewebeditor5_5/attachment/20170718114523993.pdf",
-			"field": "salinity",
+			"field": "salinity_mg_l",
 			"type": "int",
 			"unit": "mg/L",
       "conversion": ""
@@ -39,7 +39,7 @@
 		"field_5": {
       "sensor": "MEC10 Soil Moisture & Temperature & EC Sensor",
       "link": "http://www.cardvdgpsplayers.com/manage_zheqin/ewebeditor5_5/attachment/20170718114523993.pdf",
-			"field": "TDS",
+			"field": "TDS_mg_l",
 			"type": "int",
 			"unit": "mg/L",
       "conversion": ""
