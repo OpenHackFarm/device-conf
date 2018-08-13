@@ -65,7 +65,7 @@ def load_data_forwarder(forwarder_module_name):
     return forwarder
 
 
-def process(dev_id, raw_data, root=None):
+def process(dev_id, raw_data):
     node = get_node_info(dev_id)
 
     dev = load_device_define(node['node_conf']['device'])
