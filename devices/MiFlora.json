@@ -1,0 +1,48 @@
+{
+    "device_conf": {
+        "device": "Mi Flora",
+        "model": ""
+    },
+    "sensor_conf": {
+        "field_1": {
+            "sensor": "",
+            "link": "",
+            "field": "temperature_c",
+            "type": "float",
+            "unit": "°C",
+            "conversion": ""
+        },
+        "field_2": {
+            "sensor": "",
+            "link": "",
+            "field": "soil_mositure_level",
+            "type": "int",
+            "unit": "%",
+            "conversion": ""
+        },
+        "field_3": {
+            "sensor": "",
+            "link": "",
+            "field": "light_intensity_lux",
+            "type": "int",
+            "unit": "lux",
+            "conversion": ""
+        },
+        "field_4": {
+            "sensor": "",
+            "link": "",
+            "field": "EC_us_cm",
+            "type": "int",
+            "unit": "µS/cm",
+            "conversion": ""
+        },
+        "field_5": {
+            "sensor": "",
+            "link": "",
+            "field": "battery_level",
+            "type": "int",
+            "unit": "%",
+            "conversion": ""
+        }
+    }
+}
