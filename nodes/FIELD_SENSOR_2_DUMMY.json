@@ -1,0 +1,12 @@
+{
+  "node_conf": {
+    "device": "OHF/FieldSensorV2",
+    "ref_latitude": 24.71922,
+    "ref_longitude": 121.73056,
+    "ref_altitude": null,
+    "contact_email": "a0726h77@gmail.com",
+    "description": "Open Hack Farm demo device",
+    "parser": "MEC10",
+    "forwarder": "ohf_influxdb"
+  }
+}
