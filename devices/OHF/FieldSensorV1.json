@@ -7,7 +7,7 @@
 		"field_1": {
       "sensor": "DS18B20",
       "link": "https://create.arduino.cc/projecthub/TheGadgetBoy/ds18b20-digital-temperature-sensor-and-arduino-9cc806",
-			"field": "temperature_c",
+			"field": "soil_temperature_c",
 			"type": "float",
 			"unit": "°C",
       "conversion": ""
@@ -15,7 +15,7 @@
 		"field_2": {
       "sensor": "Capacitive Soil Moisture Sensor",
       "link": "https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193",
-			"field": "mositure_ohms",
+			"field": "soil_mositure_ohms",
 			"type": "int",
 			"unit": "ohms",
       "conversion": ""
