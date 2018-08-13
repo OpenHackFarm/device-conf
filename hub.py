@@ -72,9 +72,12 @@ def process(dev_id, raw_data):
     print(dev)
     print()
 
-    parser = load_data_parser(node['node_conf']['parser'])
+    if node['node_conf']['parser']:
+        parser = load_data_parser(node['node_conf']['parser'])
 
-    parse_data = parser.parse(raw_data)
+        parse_data = parser.parse(raw_data)
+    else:
+        parse_data = raw_data
     print(parse_data)
     print()
 
@@ -82,8 +85,9 @@ def process(dev_id, raw_data):
     print(json.dumps(node_data, indent=4, sort_keys=True))
     print()
 
-    forwarder = load_data_forwarder(node['node_conf']['forwarder'])
-    ret = forwarder.forward(node_data)
+    if node['node_conf']['forwarder']:
+        forwarder = load_data_forwarder(node['node_conf']['forwarder'])
+        ret = forwarder.forward(node_data)
 
 if __name__ == "__main__":
     process(DEV_ID, RAW_DATA)
