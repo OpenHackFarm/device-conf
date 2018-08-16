@@ -1,8 +1,8 @@
 {
   "node_conf": {
     "device": "MiFlora",
-    "ref_latitude": null,
-    "ref_longitude": null,
+    "ref_latitude": 25.086852, 
+    "ref_longitude": 121.590150,
     "ref_altitude": null,
     "contact_email": "a0726h77@gmail.com",
     "description": "Open Hack Farm demo device",
