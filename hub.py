@@ -47,12 +47,23 @@ def mapping_node_data(dev, node, dev_id, data):
         node_structure['device']['geohash'] = geohash.encode(node['node_conf']['ref_latitude'], node['node_conf']['ref_longitude'])
 
     # print(len(PARSE_DATA), len(DEV_DATA['sensor_conf']))
-    if len(data) == len(dev['sensor_conf']):
-        for k, i in enumerate(data):
-            k = k + 1
-            node_structure['sensors']['field_%d' % k] = {}
-            node_structure['sensors']['field_%d' % k]['key'] = dev['sensor_conf']['field_%d' % k]['field']
-            node_structure['sensors']['field_%d' % k]['value'] = eval(dev['sensor_conf']['field_%d' % k]['type'])(i)
+    if type(data) == dict:
+        i = 0
+        for k, v in data.items():
+            node_structure['sensors']['field_%d' % i] = {}
+            node_structure['sensors']['field_%d' % i]['key'] = dev['sensor_conf'][k]['field']
+            node_structure['sensors']['field_%d' % i]['value'] = eval(dev['sensor_conf'][k]['type'])(v)
+
+            i += 1
+    elif type(data) == list:
+        if len(data) == len(dev['sensor_conf']):
+            for k, v in enumerate(data):
+                k = k + 1
+                node_structure['sensors']['field_%d' % k] = {}
+                node_structure['sensors']['field_%d' % k]['key'] = dev['sensor_conf']['field_%d' % k]['field']
+                node_structure['sensors']['field_%d' % k]['value'] = eval(dev['sensor_conf']['field_%d' % k]['type'])(v)
+    else:
+        print('Unknown data type:', type(data))
 
     return node_structure
 
