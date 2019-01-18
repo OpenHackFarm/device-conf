@@ -1,0 +1,12 @@
+{
+  "node_conf": {
+    "device": "OHF/PaddySensorV3",
+    "ref_latitude": null,
+    "ref_longitude": null,
+    "ref_altitude": null,
+    "contact_email": "a0726h77@gmail.com",
+    "description": "Open Hack Farm demo device",
+    "parser": "",
+    "forwarder": "ohf_influxdb"
+  }
+}
