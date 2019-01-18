@@ -1,0 +1,24 @@
+{
+    "device_conf": {
+        "device": "Composter",
+        "model": ""
+    },
+    "sensor_conf": {
+        "temperature_0": {
+            "sensor": "SHT1X",
+            "link": "",
+            "field": "temperature_c",
+            "type": "float",
+            "unit": "°C",
+            "conversion": ""
+        },
+        "relative_humidity_0": {
+            "sensor": "SHT1X",
+            "link": "",
+            "field": "humidity",
+            "type": "int",
+            "unit": "%",
+            "conversion": ""
+        }
+    }
+}

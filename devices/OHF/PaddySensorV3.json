@@ -1,0 +1,24 @@
+{
+	"device_conf": {
+    "device": "PaddySensor",
+    "model": "V3"
+	},
+	"sensor_conf": {
+		"analog_out_0": {
+      "sensor": "",
+      "link": "",
+			"field": "voltage",
+			"type": "float",
+			"unit": "V",
+      "conversion": ""
+		},
+		"analog_out_1": {
+      "sensor": "eTape",
+      "link": "https://www.adafruit.com/product/463",
+			"field": "liquid_level_mm",
+			"type": "float",
+			"unit": "mm",
+      "conversion": ""
+		}
+	}
+}
