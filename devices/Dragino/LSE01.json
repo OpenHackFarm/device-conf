@@ -1,0 +1,40 @@
+{
+    "device_conf": {
+        "device": "LSE",
+        "model": "01"
+    },
+    "sensor_conf": {
+        "field_1": {
+            "sensor": "",
+            "link": "",
+            "field": "battery_voltage",
+            "type": "float",
+            "unit": "V",
+            "conversion": ""
+        },
+        "field_2": {
+            "sensor": "",
+            "link": "",
+            "field": "soil_moisture",
+            "type": "float",
+            "unit": "%",
+            "conversion": ""
+        },
+        "field_3": {
+            "sensor": "",
+            "link": "",
+            "field": "soil_temperature",
+            "type": "float",
+            "unit": "°C",
+            "conversion": ""
+        },
+        "field_4": {
+            "sensor": "",
+            "link": "",
+            "field": "soil_conductivity",
+            "type": "float",
+            "unit": "uS/cm",
+            "conversion": ""
+        }
+    }
+}
